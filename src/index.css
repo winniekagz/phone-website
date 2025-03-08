@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-primary: #0A192F; /* Midnight Blue */
+  --color-secondary: #C0C0C0; /* Platinum Silver */
+  --color-accent: #FFD700; /* Electric Gold */
+  --color-background: #000; /* Dark Navy */
+  --color-text: #E6EDF3; /* Soft White */
+  --color-muted: #8B949E; /* Cool Gray */
+
+  /* Fonts */
+  --font-primary: "Inter", sans-serif;
+  --font-secondary: "Poppins", sans-serif;
+
+  /* Text Styles */
+  --text-hero: 4rem; /* 64px for large headings */
+  --text-title: 2.5rem; /* 40px for section titles */
+  --text-subtitle: 1.75rem; /* 28px for subtitles */
+  --text-body: 1rem; /* 16px for normal text */
+  --text-small: 0.875rem; /* 14px for captions */
+
+  /* Breakpoints */
+  --screen-sm: 480px;
+  --screen-md: 768px;
+  --screen-lg: 1024px;
+  --screen-xl: 1280px;
+  --screen-2xl: 1536px;
+}
+
+@layer base {
+  /* Apply Default Styles */
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-primary);
+    font-size: var(--text-body);
+  }
+
+  h1 {
+    font-size: var(--text-hero);
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: var(--text-title);
+    font-weight: semi-bold;
+  }
+
+  h3 {
+    font-size: var(--text-subtitle);
+    font-weight: medium;
+  }
+
+  p {
+    font-size: var(--text-body);
+  }
+
+  small {
+    font-size: var(--text-small);
+  }
+}
+
+.screen-max-width{
+    max-width:1120
+}
+
