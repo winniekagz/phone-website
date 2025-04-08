@@ -1,35 +1,40 @@
 @import "tailwindcss";
 
+/* Theme Variables: these generate utility classes */
 @theme {
   /* Colors */
-  --color-primary: #0A192F; /* Midnight Blue */
-  --color-secondary: #C0C0C0; /* Platinum Silver */
-  --color-accent: #FFD700; /* Electric Gold */
-  --color-background: #000; /* Dark Navy */
-  --color-text: #E6EDF3; /* Soft White */
-  --color-muted: #8B949E; /* Cool Gray */
+  --color-primary: #0A192F;
+  --color-secondary: #C0C0C0;
+  --color-accent: #FFD700;
+  --color-background: #000000;
+  --color-text: #E6EDF3;
+  --color-muted: #8B949E;
 
   /* Fonts */
   --font-primary: "Inter", sans-serif;
   --font-secondary: "Poppins", sans-serif;
 
-  /* Text Styles */
-  --text-hero: 4rem; /* 64px for large headings */
-  --text-title: 2.5rem; /* 40px for section titles */
-  --text-subtitle: 1.75rem; /* 28px for subtitles */
-  --text-body: 1rem; /* 16px for normal text */
-  --text-small: 0.875rem; /* 14px for captions */
+  /* Text Sizes */
+  --text-hero: 4rem;        /* text-hero */
+  --text-title: 2.5rem;     /* text-title */
+  --text-subtitle: 1.75rem; /* text-subtitle */
+  --text-body: 1rem;        /* text-body */
+  --text-small: 0.875rem;   /* text-small */
 
   /* Breakpoints */
-  --screen-sm: 480px;
-  --screen-md: 768px;
-  --screen-lg: 1024px;
-  --screen-xl: 1280px;
-  --screen-2xl: 1536px;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* Optional: create radius, spacing, etc. */
+  --radius-full: 9999px;
+  --spacing-section: 5rem;
 }
 
+/* Base Layer: default styles using the above variables */
 @layer base {
-  /* Apply Default Styles */
   body {
     background-color: var(--color-background);
     color: var(--color-text);
@@ -39,17 +44,17 @@
 
   h1 {
     font-size: var(--text-hero);
-    font-weight: bold;
+    font-weight: 700;
   }
 
   h2 {
     font-size: var(--text-title);
-    font-weight: semi-bold;
+    font-weight: 600;
   }
 
   h3 {
     font-size: var(--text-subtitle);
-    font-weight: medium;
+    font-weight: 500;
   }
 
   p {
@@ -61,7 +66,101 @@
   }
 }
 
-.screen-max-width{
-    max-width:1120
-}
+/* Utility Layer: your custom utility classes using @apply */
+@layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
 
+  .nav-height {
+    height: calc(100vh - 60px);
+  }
+
+  .btn {
+    @apply px-5 py-2 rounded-full my-5 border bg-primary text-white hover:bg-transparent hover:text-primary hover:border-primary;
+  }
+
+  .color-container {
+    @apply flex items-center justify-center px-4 py-4 rounded-full bg-gray-300 backdrop-blur;
+  }
+
+  .size-btn-container {
+    @apply flex items-center justify-center p-1 rounded-full bg-gray-300 backdrop-blur ml-3 gap-1;
+  }
+
+  .size-btn {
+    @apply w-10 h-10 text-sm flex justify-center items-center bg-white text-black rounded-full transition-all;
+  }
+
+  .common-padding {
+    @apply sm:py-32 py-20 sm:px-10 px-5;
+  }
+
+  .section-heading {
+    @apply text-secondary lg:text-6xl md:text-5xl text-3xl lg:mb-0 mb-5 font-medium opacity-0 translate-y-20;
+  }
+
+  .feature-text {
+    @apply text-secondary max-w-md text-lg md:text-xl font-semibold opacity-0 translate-y-[100px];
+  }
+
+  .feature-text-container {
+    @apply w-full flex flex-col md:flex-row items-center justify-center gap-5 mt-10 md:mt-16;
+  }
+
+  .feature-video {
+    @apply w-full h-full object-cover object-center scale-150 opacity-0;
+  }
+
+  .feature-video-container {
+    @apply w-full flex flex-col md:flex-row gap-5 items-center;
+  }
+
+  .link {
+    @apply text-primary hover:underline cursor-pointer flex items-center text-xl opacity-0 translate-y-20;
+  }
+
+  .control-btn {
+    @apply ml-4 p-4 rounded-full bg-gray-300 backdrop-blur flex items-center justify-center;
+  }
+
+  .hero-title {
+    @apply text-center font-semibold text-3xl text-gray-100 opacity-0 max-md:mb-10;
+  }
+
+  .hiw-title {
+    @apply text-4xl md:text-7xl font-semibold text-center;
+  }
+
+  .hiw-subtitle {
+    @apply text-secondary font-semibold text-xl md:text-2xl py-10 text-center;
+  }
+
+  .hiw-video {
+    @apply absolute w-[95%] h-[90%] rounded-[56px] overflow-hidden;
+  }
+
+  .hiw-text-container {
+    @apply flex md:flex-row flex-col justify-between items-start gap-24;
+  }
+
+  .hiw-text {
+    @apply text-muted text-xl font-normal md:font-semibold;
+  }
+
+  .hiw-bigtext {
+    @apply text-white text-3xl md:text-5xl font-normal md:font-semibold my-2;
+  }
+
+  .video-carousel_container {
+    @apply relative sm:w-[70vw] w-[88vw] md:h-[70vh] sm:h-[50vh] h-[35vh];
+  }
+
+  .g_fadeIn {
+    @apply opacity-0 translate-y-[100px];
+  }
+
+  .screen-max-width {
+    max-width: 1120px;
+  }
+}
